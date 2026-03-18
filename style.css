@@ -18,6 +18,7 @@
 .card-container.disable-fade::before {
     display: none;
 }
+
 .card-container:before {
     content: "";
     position: absolute;
