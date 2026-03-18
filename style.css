@@ -194,3 +194,9 @@
 
 /* ARTICLE CARDS */
 
+/* OPENED ARTICLE */
+
+#opened-article {
+    display: none;
+    justify-content: center;
+}

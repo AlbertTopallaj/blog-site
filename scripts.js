@@ -37,3 +37,7 @@ showMoreBtn.addEventListener("click", () => {
     }
 });
 
+function openArticle() {
+    document.getElementById('opened-article').style.display = 'flex';
+}
+
