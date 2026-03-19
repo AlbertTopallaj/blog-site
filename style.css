@@ -1,238 +1,114 @@
 
 .slider {
-  width: 100%;
-  max-width: 600px;
-  margin: 40px auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 40px auto;
 }
 
 .slides {
-  display: flex;
-  width: 300%;
-  transition: transform 0.6s ease;
+    display: flex;
+    width: 300%;
+    transition: transform 0.6s ease;
 }
 
 .slide {
-  width: 100%;
-  flex: 0 0 100%;
+    width: 100%;
+    flex: 0 0 100%;
 }
 
 .slide img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  border-radius: 10px;
-  cursor: pointer;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* Slide rörelse */
 
 #s1:checked ~ .slides {
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
 #s2:checked ~ .slides {
-  transform: translateX(-100%);
+    transform: translateX(-100%);
 }
 
 #s3:checked ~ .slides {
-  transform: translateX(-200%);
+    transform: translateX(-200%);
 }
 
 /* Punkter */
 
 .dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
 }
 
 .dots label {
-  width: 12px;
-  height: 12px;
-  background: #bbb;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
+    width: 12px;
+    height: 12px;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 #s1:checked ~ .dots label[for="s1"],
 #s2:checked ~ .dots label[for="s2"],
 #s3:checked ~ .dots label[for="s3"] {
-  background: #333;
+    background: #333;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .category {
 
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
-flex-direction: column; 
-align-items: center;
-margin-top: 2rem;
-gap: 16px;
-background-color: white;
-border-radius: 16px;
-border: 1px solid #eee;
-padding: 20px;
-box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-transition: transform 0.2s;
-}
-
-.category:hover {
-
-  transform: translateY(-4px);
-
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background-color: #3d444d;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: fit-content;
+    margin: 2rem auto;
 }
 
 .item {
-  display: flex;
-  flex: 1;
-  min-width: 100px;
-  border: 1px solid #eee;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    flex: 1;
+    min-width: 100px;
+    border: 1px solid #eee;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
 }
 
 .items {
-  display: flex;
-  gap: 16px;
-  align-items: stretch;
-  flex-direction: row;
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    flex-direction: row;
 }
 
 /* ARTICLE CARDS */
 
 .article-selection-section {
-    --card-width: 150px;
-    --card-height: 250px;
+    --card-width: 250px;
+    --card-height: 150px;
     --card-gap: 20px;
     --cards-per-row: 3;
     padding: 10px;
 }
-.category-selector-placeholder {
-    width: 700px;
-    height: 50px;
-    margin: 20px auto;
-    text-align: center;
-    line-height: 45px;
-    border-radius: 10px;
-    background-color: black;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
+
 .card-container.disable-fade::before {
     display: none;
 }
@@ -246,12 +122,13 @@ transition: transform 0.2s;
     height: calc(var(--card-height) * 0.35);
     background: linear-gradient(
             to bottom,
-            rgba(61,68,77,0),
-            rgba(61,68,77,0.8),
-            rgba(61,68,77,1));
+            rgba(61, 68, 77, 0),
+            rgba(61, 68, 77, 0.8),
+            rgba(61, 68, 77, 1));
     z-index: 1;
     pointer-events: all;
 }
+
 .card-container {
     width: calc(var(--card-width) * var(--cards-per-row) + (var(--cards-per-row) * var(--card-gap) * 3));
     max-height: calc(var(--card-height) * 1.5);
@@ -272,15 +149,16 @@ transition: transform 0.2s;
     position: absolute;
     inset: 0;
     background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0),
-    rgba(0,0,0,0),
-    rgba(0,0,0,0),
-    rgba(0,0,0,0.40),
-    rgba(0,0,0,0.70),
-    rgba(0,0,0,0.8));
+            to bottom,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.60),
+            rgba(0, 0, 0, 0.99),
+            rgba(0, 0, 0, 0.99));
     pointer-events: none;
 }
+
 .article-card {
     width: var(--card-width);
     height: var(--card-height);
@@ -288,14 +166,15 @@ transition: transform 0.2s;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    padding: 15px;
+    padding: 15px 15px 1px 15px;
     background-size: cover;
     background-position: center;
     position: relative;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 200ms ease;
     cursor: pointer;
 }
+
 .article-card p {
     position: relative;
     color: azure;
@@ -305,42 +184,44 @@ transition: transform 0.2s;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .article-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
 }
-.show-more-btn {
-    display: block;
-    margin: 30px auto;
-    padding: 10px 20px;
-    background: black;
-    color: azure;
-    font-size: 14px;
-    font-weight: bold;
-    border-radius: 1000px;
-    cursor: pointer;
-    transition:
-            background 200ms ease,
-            transform 200ms ease,
-            box-shadow 200ms ease;
 
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+.show-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 60px;      /* wider than tall → horizontal pill */
+    height: 30px;
+    border-radius: 999px; /* makes it pill-shaped */
+    border: none;
+    background: rgba(61, 68, 77, 0.1);
+    color: silver;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+    transition: background 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
+
 .show-more-btn:disabled {
-    background: #555;
-    color: #aaa;
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
-    pointer-events: none;
+    display: none;
 }
+
 .show-more-btn:not(:disabled):hover {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
+
 .show-more-btn:not(:disabled):active {
     transform: translateY(0px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* ARTICLE CARDS */

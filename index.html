@@ -7,216 +7,78 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <div class="slider"> 
 
-  <input type="radio" name="slide" id="s1" checked>
-  <input type="radio" name="slide" id="s2">
-  <input type="radio" name="slide" id="s3">
+<div class="slider">
 
-  <div class="slides">
-    <a href="#post1" class="slide">
-      <img src="img1.webp" alt="Blog Post 1">
-    </a>
+    <input type="radio" name="slide" id="s1" checked>
+    <input type="radio" name="slide" id="s2">
+    <input type="radio" name="slide" id="s3">
 
-    <a href="#post2" class="slide">
-      <img src="img2.jpg" alt="Blog Post 2">
-    </a>
+    <div class="slides">
+        <a href="#post1" class="slide">
+            <img src="img1.webp" alt="Blog Post 1">
+        </a>
 
-    <a href="#post3" class="slide">
-      <img src="img3.jpg" alt="Blog Post 3">
-    </a>
-  </div>
+        <a href="#post2" class="slide">
+            <img src="img2.jpg" alt="Blog Post 2">
+        </a>
 
-  <div class="dots">
-    <label for="s1"></label>
-    <label for="s2"></label>
-    <label for="s3"></label>
+        <a href="#post3" class="slide">
+            <img src="img3.jpg" alt="Blog Post 3">
+        </a>
+    </div>
 
-  </div>
+    <div class="dots">
+        <label for="s1"></label>
+        <label for="s2"></label>
+        <label for="s3"></label>
+
+    </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section id="category">
-
-
-<div class="category">
-
-
-  <h1>Choose Category For Blog Articles</h1>
-
-   <div class="items">
-  <div class="item">
-  <p>AI</p>
-  <input id="category-ai" type="radio" name="category">
-  </div>
-
-  <div class="item">
-  <p>CSS</p>
-  <input id="category-css" type="radio" name="category">
-  </div>
-
-  <div class="item">
-  <p>HTML</p>
-  <input id="category-html" type="radio" name="category">
-  </div>
-
-  <div class="item">
-  <p>Spring Boot</p>
-  <input id="category-springboot" type="radio" name="category">
-  </div>
-  </div>
-
-</section>    
-  </div>
-</div>
-    
-    <section class="article-selection-section" style="background-color: #3d444d">
-        <div class="category-selector-placeholder" style="color: cornflowerblue">Category Selector Placeholder</div>
-        <div class="card-container" id="cardContainer">
-        <!-- JS-injected content -->
+<section class="article-selection-section" style="background-color: #3d444d">
+    <div class="category">
+
+        <h2>Choose Category For Blog Articles</h2>
+
+        <div class="items">
+            <div class="item">
+                <p>AI</p>
+                <input id="category-ai" type="radio" name="category" checked>
+            </div>
+
+            <div class="item">
+                <p>CSS</p>
+                <input id="category-css" type="radio" name="category">
+            </div>
+
+            <div class="item">
+                <p>HTML</p>
+                <input id="category-html" type="radio" name="category">
+            </div>
+
+            <div class="item">
+                <p>Spring Boot</p>
+                <input id="category-springboot" type="radio" name="category">
+            </div>
         </div>
-        <button class="show-more-btn" id="showMoreBtn">Show more</button>
-        </section>
-    <div style="width: fit-content;height: 200px"></div>
+    </div>
+    <div class="card-container" id="cardContainer">
+        <!-- JS-injected content -->
+    </div>
+    <button class="show-more-btn" id="showMoreBtn">
+        <span class="chevron">⌵</span>
+    </button>
+</section>
+<div style="width: fit-content;height: 200px"></div>
 
-    <!-- Opened Article -->
-    <article id="opened-article">
-        
-    </article>
-  
-    <script src="resources/articles.js"></script>
-    <script src="scripts.js"></script>
-  </body>
+<!-- Opened Article -->
+<article id="opened-article">
+
+</article>
+
+<script src="resources/articles.js"></script>
+<script src="scripts.js"></script>
+</body>
 </html>
