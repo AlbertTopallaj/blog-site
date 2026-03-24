@@ -55,10 +55,16 @@ const backgrounds = {
 
 };
 
+const defaultCategory = document.querySelector('input[name="category"]:checked');
+if (defaultCategory) {
+    section.style.backgroundImage =
+    `radial-gradient(ellipse at center, #0d1117 70%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
+}
+
 document.querySelectorAll('input[name="category"]').forEach(input => {
     input.addEventListener('change', () => {
         section.style.backgroundImage =
-        `radial-gradient(ellipse at center, #0d1117 40%, transparent 100%), ${backgrounds[input.id]}`;
+        `radial-gradient(ellipse at center, #0d1117 70%, transparent 100%), ${backgrounds[input.id]}`;
      });
   });
 });
