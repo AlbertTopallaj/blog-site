@@ -1,4 +1,47 @@
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0d1117;
+  margin: 0;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #010409;
+  padding: 1em;
+  border-bottom: gray;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#header a {
+  color: white;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 0.5em;
+  font-size: 1.5em;
+  text-decoration: none;
+  border-radius: 10px;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#header a:hover {
+  background-color: #151b23;
+}
+
+#header img {
+  color: white;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 .slider {
   width: 100%;
   max-width: 600px;
