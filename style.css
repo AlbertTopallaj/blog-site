@@ -238,6 +238,15 @@ color: white;
     --cards-per-row: 3;
     padding: 10px;
 }
+
+/* BACKGROUND BASED ON CATEGORY */
+
+.article-selection-section {
+  background-image: radial-gradient(ellipse at center, #0d1117 40%, transparent 100%), url('images/ai-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .category-selector-placeholder {
     width: 700px;
     height: 50px;

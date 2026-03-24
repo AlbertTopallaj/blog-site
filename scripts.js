@@ -41,3 +41,25 @@ function openArticle() {
     document.getElementById('opened-article').style.display = 'flex';
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    const section = document.querySelector('.article-selection-section');
+
+const backgrounds = {
+
+    'category-ai': "url('resources/ai-bg.jpg')",
+    'category-css': "url('resources/css-bg.png')",
+    'category-html': "url('resources/html-bg.png')",
+    'category-springboot': "url('resources/springboot-bg.png')"
+
+};
+
+document.querySelectorAll('input[name="category"]').forEach(input => {
+    input.addEventListener('change', () => {
+        section.style.backgroundImage =
+        `radial-gradient(ellipse at center, #0d1117 40%, transparent 100%), ${backgrounds[input.id]}`;
+     });
+  });
+});
+
