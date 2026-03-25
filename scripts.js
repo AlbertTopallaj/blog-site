@@ -1,8 +1,8 @@
 const cards = document.getElementById("cardContainer")
 const showMoreBtn = document.getElementById("showMoreBtn")
-const cardsPerRow = parseInt(getComputedStyle(document.querySelector(".article-selection-section"))
+const cardsPerRow = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--cards-per-row"));
-const cardHeight = parseInt(getComputedStyle(document.querySelector(".article-selection-section"))
+const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--card-height"))
 
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"

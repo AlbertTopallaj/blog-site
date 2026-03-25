@@ -1,13 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 
-.slider {
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Mona Sans", sans-serif;
+    color: azure;
+    margin: 0;
+    --section-background: #010409;
+    --container-background: #0d1117;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #010409;
+    padding: 1em;
+    border-bottom: gray;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#header a {
+    color: white;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0.5em;
+    font-size: 1.5em;
+    text-decoration: none;
+    border-radius: 10px;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#header a:hover {
+    background-color: #151b23;
+}
+
+#header img {
+    color: white;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+#slider {
     width: 100%;
-    max-width: 600px;
-    margin: 40px auto;
+    max-width: 100%;
+    overflow: hidden;
+    background-color: var(--section-background);
+    padding: 10px;
 }
 
 .slides {
     display: flex;
-    width: 300%;
+    width: 100%;
     transition: transform 0.6s ease;
 }
 
@@ -63,6 +113,21 @@
     background: #333;
 }
 
+
+
+/* ARTICLE CARDS */
+
+#article-selection-section {
+    --card-width: 250px;
+    --card-height: 150px;
+    --card-gap: 20px;
+    --cards-per-row: 3;
+    width: 100%;
+    padding: 10px;
+    left: 0;
+    background-color: var(--section-background);
+}
+
 .category {
 
     display: flex;
@@ -71,13 +136,13 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    background-color: #3d444d;
+    background-color: var(--container-background);
     border-radius: 16px;
     border: 1px solid #eee;
     padding: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     width: fit-content;
-    margin: 2rem auto;
+    margin: 32px auto;
 }
 
 .item {
@@ -99,15 +164,6 @@
     flex-direction: row;
 }
 
-/* ARTICLE CARDS */
-
-.article-selection-section {
-    --card-width: 250px;
-    --card-height: 150px;
-    --card-gap: 20px;
-    --cards-per-row: 3;
-    padding: 10px;
-}
 
 .card-container.disable-fade::before {
     display: none;
@@ -122,9 +178,9 @@
     height: calc(var(--card-height) * 0.35);
     background: linear-gradient(
             to bottom,
-            rgba(61, 68, 77, 0),
-            rgba(61, 68, 77, 0.8),
-            rgba(61, 68, 77, 1));
+            #01040900,
+            #010409BF,
+            #010409FF);
     z-index: 1;
     pointer-events: all;
 }
@@ -142,6 +198,7 @@
     gap: calc(var(--card-gap) * 2);
     justify-content: center;
     overflow-y: hidden;
+    background-color: var(--section-background);
 }
 
 .article-card:before {
@@ -150,12 +207,12 @@
     inset: 0;
     background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0),
-            rgba(0, 0, 0, 0.60),
-            rgba(0, 0, 0, 0.99),
-            rgba(0, 0, 0, 0.99));
+            #01040900,
+            #01040900,
+            #01040900,
+            #01040999,
+            #010409FC,
+            #010409FC);
     pointer-events: none;
 }
 
@@ -224,11 +281,59 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
-/* ARTICLE CARDS */
+/* END ARTICLE CARDS */
+
+.separator {
+    background-color: var(--container-background);
+    height: 1px;
+}
 
 /* OPENED ARTICLE */
 
 #opened-article {
     display: none;
     justify-content: center;
+}
+
+/* FOOTER */
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    width: 100%;
+    padding: 10px 20px;
+
+    background-color: var(--section-background);
+    border-top: 1px solid #222;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 180px;
+}
+
+.footer-content h3 {
+    font-size: 16px;
+    color: azure;
+    margin-bottom: 6px;
+}
+
+.footer-content p {
+    font-size: 13px;
+    color: lightgray;
+    line-height: 1.4;
+    margin: 0;
+}
+.footer-content a {
+    font-size: 13px;
+    color: lightgray;
+    text-decoration: none;
+    line-height: 1.4;
+    margin: 0;
+}
+.footer-content a:hover {
+    color: azure;
 }

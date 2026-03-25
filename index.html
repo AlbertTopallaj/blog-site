@@ -8,7 +8,17 @@
 </head>
 <body>
 
-<div class="slider">
+<header id="header">
+    <a href="#slider">Trending</a>
+    <a href="#article-selection-section">Categories</a>
+    <img src="" alt="Logo">
+    <a href="#opened-article">Content</a>
+    <a href="#footer">Footer</a>
+</header>
+
+<div class="separator"></div>
+
+<section id="slider">
 
     <input type="radio" name="slide" id="s1" checked>
     <input type="radio" name="slide" id="s2">
@@ -34,10 +44,11 @@
         <label for="s3"></label>
 
     </div>
-</div>
+</section>
 
+<div class="separator"></div>
 
-<section class="article-selection-section" style="background-color: #3d444d">
+<section id="article-selection-section">
     <div class="category">
 
         <h2>Choose Category For Blog Articles</h2>
@@ -71,12 +82,45 @@
         <span class="chevron">⌵</span>
     </button>
 </section>
-<div style="width: fit-content;height: 200px"></div>
+<div class="separator"></div>
 
 <!-- Opened Article -->
-<article id="opened-article">
+<section id="opened-article">
 
-</article>
+</section>
+
+<div class="separator"></div>
+
+<!-- Footer -->
+
+<footer id="footer">
+    <div class="footer-content">
+        <h3>Om oss</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+    </div>
+
+    <div class="footer-content">
+        <h3>Kontakta</h3>
+        <p>Email: kontakt@exempel.se</p>
+        <p>Telefon: +46 70 123 45 67</p>
+        <p>Järle, Sverige</p>
+    </div>
+
+    <div class="footer-content">
+        <h3>Sociala</h3>
+        <a href="https://github.com/AlbertTopallaj/blog-site">GitHub</a>
+        <a href="https://discord.gg/dAQPWf4s">Discord</a>
+    </div>
+
+    <div class="footer-content">
+        <h3>Extra</h3>
+        <p>Integritetspolicy</p>
+        <p>Villkor</p>
+        <p>Version 0.0.1a</p>
+    </div>
+</footer>
+
 
 <script src="resources/articles.js"></script>
 <script src="scripts.js"></script>
