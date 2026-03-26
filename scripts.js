@@ -37,7 +37,14 @@ showMoreBtn.addEventListener("click", () => {
     }
 });
 
-function openArticle() {
-    document.getElementById('opened-article').style.display = 'flex';
+function openArticle(id) {
+    const div = document.getElementById('opened-article');
+    div.style.display = 'flex';
+    const article = articles.find((element) => element.id = id);
+    //const title = document.createElement('h1').value(article.title);
+    const img = document.createElement('img');//.src(article.image);
+    img.setAttribute('src', article.image);
+    //const body = document.createElement('p').value(article.body);
+    div.innerHTML = `<h1>${article.title}</h1><img src=${article.image}><p>${article.body}</p>`;
 }
 
