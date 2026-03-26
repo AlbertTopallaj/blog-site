@@ -412,6 +412,7 @@ color: white;
     max-width: 40%;
     color: white;
     flex-wrap: wrap;
+    flex-direction: column;
     margin: auto;
     margin-top: 5em;
     background-color: #30363d;
@@ -419,7 +420,19 @@ color: white;
     border-radius: 10px;
 }
 
-#opened-article img {
-  max-width: 30%;
-  max-height: 30%;
+#opened-article h1 {
+  margin: auto;
+  padding: 0.5em;
+}
+
+#opened-article p {
+  width: 70%;
+}
+
+#article-content img {
+  width: 40%;
+  height: 40%;
+  float: right;
+  margin: 1em;
+  margin-right: 0;
 }

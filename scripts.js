@@ -43,7 +43,8 @@ function openArticle(id) {
     const article = articles.find((element) => element.id == id);
     const title = `<h1>${article.title}</h1>`;
     const img = `<img src=${article.image}>`;
-    const body = `<p>${article.body}</p>`;
-    div.innerHTML = `${title}${img}${body}`;
+    const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
+    const bodyFormated = body.replace(/\n/g,'</p><p>');
+    div.innerHTML = `${title}${bodyFormated}`;
 }
 
