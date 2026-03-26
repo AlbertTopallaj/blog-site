@@ -305,6 +305,7 @@ color: white;
     flex-direction: column;
     margin: auto;
     margin-top: 5em;
+    margin-bottom: 5em;
     background-color: #30363d;
     padding: 2em;
     border-radius: 10px;
@@ -313,10 +314,6 @@ color: white;
 #opened-article h1 {
   margin: auto;
   padding-bottom: 0.5em;
-}
-
-#opened-article p {
-  width: 70%;
 }
 
 #article-content img {
