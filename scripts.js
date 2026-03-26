@@ -40,11 +40,10 @@ showMoreBtn.addEventListener("click", () => {
 function openArticle(id) {
     const div = document.getElementById('opened-article');
     div.style.display = 'flex';
-    const article = articles.find((element) => element.id = id);
-    //const title = document.createElement('h1').value(article.title);
-    const img = document.createElement('img');//.src(article.image);
-    img.setAttribute('src', article.image);
-    //const body = document.createElement('p').value(article.body);
-    div.innerHTML = `<h1>${article.title}</h1><img src=${article.image}><p>${article.body}</p>`;
+    const article = articles.find((element) => element.id == id);
+    const title = `<h1>${article.title}</h1>`;
+    const img = `<img src=${article.image}>`;
+    const body = `<p>${article.body}</p>`;
+    div.innerHTML = `${title}${img}${body}`;
 }
 
