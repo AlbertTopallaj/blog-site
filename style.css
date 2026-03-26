@@ -111,117 +111,7 @@ body {
   background: #333;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .category {
-
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
@@ -422,7 +312,7 @@ color: white;
 
 #opened-article h1 {
   margin: auto;
-  padding: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 #opened-article p {

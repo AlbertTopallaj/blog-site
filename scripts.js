@@ -12,6 +12,7 @@ function renderCards() {
         card.className = 'article-card';
         card.style.backgroundImage = `url('${article.image}')`;
         card.innerHTML = `<p>${article.title}</p>`;
+        card.onclick = function() { openArticle(article.id) };
         cards.appendChild(card);
 
     })
@@ -47,4 +48,3 @@ function openArticle(id) {
     const bodyFormated = body.replace(/\n/g,'</p><p>');
     div.innerHTML = `${title}${bodyFormated}`;
 }
-
