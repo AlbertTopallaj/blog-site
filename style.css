@@ -408,4 +408,18 @@ color: white;
 #opened-article {
     display: none;
     justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    color: white;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 5em;
+    background-color: #30363d;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+#opened-article img {
+  max-width: 30%;
+  max-height: 30%;
 }
