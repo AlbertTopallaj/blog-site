@@ -1,4 +1,4 @@
-const articles = [
+export const articles = [
     {
         id: 0,
         category: "AI",

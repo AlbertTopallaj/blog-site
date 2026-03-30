@@ -41,86 +41,94 @@ function openArticle() {
     document.getElementById('opened-article').style.display = 'flex';
 }
 
-import { articles } from './articles.js';
+//window.addEventListener("DOMContentLoaded", () => {
+  import { articles } from './resources/articles.js';
 
-function getPostById(id) {
-  return blogPosts.find(post => post.id === id);
-}
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
 
-const slides = document.querySelectorAll('.slide');
-const slider = document.querySelector('.slider');
-let currentIndex = 0;
+// 🔴 OM VI ÄR I "POST-LÄGE"
+if (id !== null) {
+  const article = articles.find(a => a.id == id);
 
-function renderSlide(slide) {
-  const id = parseInt(slide.dataset.id, 10);
-  const post = getPostById(id);
+  const app = document.getElementById('app');
 
-  slide.innerHTML = `
-    <h2>${post.title}</h2>
-    <p>${post.excerpt}</p>
-    <a href="${post.url}">Read more</a>
-  `;
-}
-
-slides.forEach(renderSlide);
-
-function showRandomSlide() {
-  let nextIndex;
-  do {
-    nextIndex = Math.floor(Math.random() * slides.length);
-  } while (nextIndex === currentIndex);
-
-  slides[currentIndex].classList.remove('active');
-  slides[nextIndex].classList.add('active');
-
-  currentIndex = nextIndex;
-}
-
-let autoSwitch = setInterval(showRandomSlide, 4000);
-
-document.querySelector('.arrow.left').addEventListener('click', () => {
-  showRandomSlide();
-  clearInterval(autoSwitch);
-  autoSwitch = setInterval(showRandomSlide, 4000);
-});
-
-document.querySelector('.arrow.right').addEventListener('click', () => {
-  showRandomSlide();
-  clearInterval(autoSwitch);
-  autoSwitch = setInterval(showRandomSlide, 4000);
-});
-
-let startX = 0;
-let endX = 0;
-let isDragging = false;
-
-function handleSwipe() {
-  const distance = endX - startX;
-
-  if (Math.abs(distance) > 50) {
-    showRandomSlide();
-    clearInterval(autoSwitch);
-    autoSwitch = setInterval(showRandomSlide, 4000);
+  if (article) {
+    app.innerHTML = `
+      <div style="max-width:800px; margin:40px auto; font-family:sans-serif;">
+        <h1>${article.title}</h1>
+        <img src="${article.image}" style="width:100%; border-radius:10px;">
+        <p style="line-height:1.6;">
+          ${article.body.replace(/\n/g, "<br>")}
+        </p>
+        <br>
+        <a href="/">⬅ Tillbaka</a>
+      </div>
+    `;
+  } else {
+    app.innerHTML = "<h1>Artikel hittades inte</h1>";
   }
+
+// 🟢 ANNARS VISA SLIDER
+} else {
+
+  const container = document.querySelector('.slides-container');
+  const dotsContainer = document.querySelector('.dots');
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+
+  const randomized = [...articles].sort(() => Math.random() - 0.5);
+  let currentIndex = 0;
+
+  if (!randomized.length) {
+    container.innerHTML = "<p>Inga artiklar</p>";
+  }
+
+  randomized.forEach((article, index) => {
+    const slide = document.createElement('div');
+    slide.classList.add('slide');
+
+    slide.innerHTML = `
+      <img src="${article.image}" alt="${article.title}">
+    `;
+
+    // 👉 KLICK → LADDA SAMMA SIDA MED ID
+    slide.onclick = () => {
+      window.location.search = `?id=${article.id}`;
+    };
+
+    container.appendChild(slide);
+
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    dot.onclick = () => goToSlide(index);
+
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function updateSlider() {
+    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSlider();
+  }
+
+  leftArrow.onclick = () => {
+    currentIndex = (currentIndex - 1 + randomized.length) % randomized.length;
+    updateSlider();
+  };
+
+  rightArrow.onclick = () => {
+    currentIndex = (currentIndex + 1) % randomized.length;
+    updateSlider();
+  };
+
+  updateSlider();
 }
-
-slider.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-});
-
-slider.addEventListener('touchend', e => {
-  endX = e.changedTouches[0].clientX;
-  handleSwipe();
-});
-
-slider.addEventListener('mousedown', e => {
-  isDragging = true;
-  startX = e.clientX;
-});
-
-slider.addEventListener('mouseup', e => {
-  if (!isDragging) return;
-  endX = e.clientX;
-  isDragging = false;
-  handleSwipe();
-});
+//});
