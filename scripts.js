@@ -49,3 +49,32 @@ function openArticle(id) {
     div.innerHTML = `${title}${bodyFormated}`;
     window.location.replace('#opened-article'); 
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    const section = document.querySelector('.article-selection-section');
+
+const backgrounds = {
+
+    'category-ai': "url('resources/ai-bg.jpg')",
+    'category-css': "url('resources/css-bg.png')",
+    'category-html': "url('resources/html-bg.jpg')",
+    'category-springboot': "url('resources/springboot-bg.jpg')"
+
+};
+
+const defaultCategory = document.querySelector('input[name="category"]:checked');
+if (defaultCategory) {
+    section.style.backgroundImage =
+    `radial-gradient(ellipse at center, #0d1117 50%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
+}
+
+document.querySelectorAll('input[name="category"]').forEach(input => {
+    input.addEventListener('change', () => {
+        section.style.backgroundImage =
+        `radial-gradient(ellipse at center, #0d1117 20%, transparent 100%), ${backgrounds[input.id]}`;
+     });
+  });
+});
+

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Blog Site</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Blog Site</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -46,37 +47,49 @@
 
     <section class="article-selection-section" style="background-color: #3d444d">
 
-      <section id="category">
+        <div class="items">
+          <div class="item">
+            <input id="category-ai" type="radio" name="category" checked>
+            <p>AI</p>
+          </div>
+
+          <div class="item">
+            <input id="category-css" type="radio" name="category">
+            <p>CSS</p>
+          </div>
+
+          <div class="item">
+            <input id="category-html" type="radio" name="category">
+            <p>HTML</p>
+          </div>
+
+          <div class="item">
+            <input id="category-springboot" type="radio" name="category">
+            <p>Spring Boot</p>
+          </div>
+        </div>
+
+    </section>
+
+    </div>
+    </div>
+    <div class="card-container" id="cardContainer">
+      <!-- JS-injected content -->
+    </div>
+    <button class="show-more-btn" id="showMoreBtn">Show more</button>
+ 
+  <div style="width: fit-content;height: 200px"></div>
+
+  <!-- Opened Article -->
+  <article id="opened-article">
+
+  </article>
+
+  <script src="resources/articles.js"></script>
+  <script src="scripts.js"></script>
 
 
-<div class="category">
 
-
-  <h1>Choose Category For Blog Articles</h1>
-
-   <div class="items">
-  <div class="item">
-  <input id="category-ai" type="radio" name="category" checked>
-  <p>AI</p>
-  </div>
-
-  <div class="item">
-  <input id="category-css" type="radio" name="category">
-  <p>CSS</p>
-  </div>
-
-  <div class="item">
-  <input id="category-html" type="radio" name="category">
-  <p>HTML</p>
-  </div>
-
-  <div class="item">
-  <input id="category-springboot" type="radio" name="category">
-  <p>Spring Boot</p>
-  </div>
-  </div>
-
-</section>
     
   </div>
 </div>
@@ -84,7 +97,7 @@
         <!-- JS-injected content -->
         </div>
         <button class="show-more-btn" id="showMoreBtn">Show more</button>
-        </section>
+     
 
     <!-- Opened Article -->
     <article id="opened-article"></article>
