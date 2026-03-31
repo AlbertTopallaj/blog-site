@@ -294,7 +294,6 @@ color: white;
 /* ARTICLE CARDS */
 
 /* OPENED ARTICLE */
-
 #opened-article {
     display: none;
     justify-content: center;
@@ -322,4 +321,47 @@ color: white;
   float: right;
   margin: 1em;
   margin-right: 0;
+}
+
+/* FOOTER */
+#footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    width: 100%;
+    padding: 10px 20px;
+
+    background-color: var(--section-background);
+    border-top: 1px solid #222;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 180px;
+}
+
+.footer-content h3 {
+    font-size: 16px;
+    color: azure;
+    margin-bottom: 6px;
+}
+
+.footer-content p {
+    font-size: 13px;
+    color: lightgray;
+    line-height: 1.4;
+    margin: 0;
+}
+.footer-content a {
+    font-size: 13px;
+    color: lightgray;
+    text-decoration: none;
+    line-height: 1.4;
+    margin: 0;
+}
+.footer-content a:hover {
+    color: azure;
 }
