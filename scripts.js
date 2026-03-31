@@ -50,9 +50,6 @@ function openArticle(id) {
     window.location.replace('#opened-article'); 
 }
 
-//window.addEventListener("DOMContentLoaded", () => {
-  import { articles } from './resources/articles.js';
-
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
@@ -100,7 +97,7 @@ if (id !== null) {
     `;
 
     slide.onclick = () => {
-      window.location.search = `?id=${article.id}`;
+      openArticle(article.id);
     };
 
     container.appendChild(slide);
