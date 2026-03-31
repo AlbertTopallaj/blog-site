@@ -160,7 +160,7 @@ body {
 
 /* ARTICLE CARDS */
 
-.article-selection-section {
+#article-selection-section {
   --card-width: 150px;
   --card-height: 250px;
   --card-gap: 20px;
@@ -170,7 +170,7 @@ body {
 
 /* BACKGROUND BASED ON CATEGORY */
 
-.article-selection-section {
+#article-selection-section {
   background-image: radial-gradient(ellipse at center, #0d1117 70%, transparent 100%), url('images/ai-bg.jpg');
   background-size: cover;
   background-position: center;

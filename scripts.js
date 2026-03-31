@@ -1,23 +1,27 @@
 const cards = document.getElementById("cardContainer")
 const showMoreBtn = document.getElementById("showMoreBtn")
-const cardsPerRow = parseInt(getComputedStyle(document.querySelector(".article-selection-section"))
+const cardsPerRow = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--cards-per-row"));
-const cardHeight = parseInt(getComputedStyle(document.querySelector(".article-selection-section"))
+const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--card-height"))
 
-function renderCards() {
+function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
+    cards.innerHTML = "";
     articles.forEach(article => {
-        const card = document.createElement('div');
-        card.id = article.id
-        card.className = 'article-card';
-        card.style.backgroundImage = `url('${article.image}')`;
-        card.innerHTML = `<p>${article.title}</p>`;
-        card.onclick = function() { openArticle(article.id); };
-        cards.appendChild(card);
-
+        if (article.category === input) {
+            const card = document.createElement('div');
+            card.id = article.id;
+            card.className = 'article-card';
+            card.style.backgroundImage = `url('${article.image}')`;
+            card.onclick = function() {openArticle(article.id)};
+            const p = document.createElement('p');
+            p.textContent = article.title;
+            card.appendChild(p)
+            cards.appendChild(card);
+        }
     })
 }
-renderCards()
+renderCards("AI") // startup default
 
 let visibleCards = cardsPerRow;
 
@@ -37,6 +41,19 @@ showMoreBtn.addEventListener("click", () => {
         }
     }
 });
+
+document.getElementById("category-ai").addEventListener("change", () => {
+    renderCards("AI")
+})
+document.getElementById("category-css").addEventListener("change", () => {
+    renderCards("CSS")
+})
+document.getElementById("category-html").addEventListener("change", () => {
+    renderCards("HTML")
+})
+document.getElementById("category-springboot").addEventListener("change", () => {
+    renderCards("SPRING")
+})
 
 function openArticle(id) {
     const div = document.getElementById('opened-article');
@@ -138,10 +155,9 @@ if (id !== null) {
 document.addEventListener('DOMContentLoaded', () => {
 
 
-    const section = document.querySelector('.article-selection-section');
+    const section = document.querySelector('#article-selection-section');
 
 const backgrounds = {
-
     'category-ai': "url('resources/ai-bg.jpg')",
     'category-css': "url('resources/css-bg.png')",
     'category-html': "url('resources/html-bg.jpg')",
