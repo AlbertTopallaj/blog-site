@@ -112,7 +112,6 @@ body {
 }
 
 .category {
-
 display: flex;
 justify-content: center;
 flex-wrap: wrap;
@@ -295,10 +294,33 @@ color: white;
 /* ARTICLE CARDS */
 
 /* OPENED ARTICLE */
-
 #opened-article {
     display: none;
     justify-content: center;
+    align-items: center;
+    max-width: 40%;
+    color: white;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    background-color: #30363d;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+#opened-article h1 {
+  margin: auto;
+  padding-bottom: 0.5em;
+}
+
+#article-content img {
+  width: 40%;
+  height: 40%;
+  float: right;
+  margin: 1em;
+  margin-right: 0;
 }
 
 /* FOOTER */

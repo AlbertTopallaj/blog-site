@@ -12,6 +12,7 @@ function renderCards() {
         card.className = 'article-card';
         card.style.backgroundImage = `url('${article.image}')`;
         card.innerHTML = `<p>${article.title}</p>`;
+        card.onclick = function() { openArticle(article.id); };
         cards.appendChild(card);
 
     })
@@ -37,7 +38,14 @@ showMoreBtn.addEventListener("click", () => {
     }
 });
 
-function openArticle() {
-    document.getElementById('opened-article').style.display = 'flex';
+function openArticle(id) {
+    const div = document.getElementById('opened-article');
+    div.style.display = 'flex';
+    const article = articles.find((element) => element.id == id);
+    const title = `<h1>${article.title}</h1>`;
+    const img = `<img src=${article.image}>`;
+    const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
+    const bodyFormated = body.replace(/\n/g,'</p><p>');
+    div.innerHTML = `${title}${bodyFormated}`;
+    window.location.replace('#opened-article'); 
 }
-
