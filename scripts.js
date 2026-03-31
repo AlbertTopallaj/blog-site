@@ -47,7 +47,6 @@ function openArticle() {
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
-// 🔴 OM VI ÄR I "POST-LÄGE"
 if (id !== null) {
   const article = articles.find(a => a.id == id);
 
@@ -69,7 +68,6 @@ if (id !== null) {
     app.innerHTML = "<h1>Artikel hittades inte</h1>";
   }
 
-// 🟢 ANNARS VISA SLIDER
 } else {
 
   const container = document.querySelector('.slides-container');
@@ -92,7 +90,6 @@ if (id !== null) {
       <img src="${article.image}" alt="${article.title}">
     `;
 
-    // 👉 KLICK → LADDA SAMMA SIDA MED ID
     slide.onclick = () => {
       window.location.search = `?id=${article.id}`;
     };
