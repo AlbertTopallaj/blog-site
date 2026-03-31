@@ -7,46 +7,45 @@
   <title>Home - Blog Site</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <div class="slider">
+  <div id="header"> 
+    <a href="#slider">Trending</a>
+    <a href="#category">Categories</a>
+    <img src="" alt="Logo">
+    <a href="#opened-article">Content</a>
+    <a href="#footer">Footer</a>
+  </div>
+    
+    <div class="slider" id="slider"> 
 
-    <input type="radio" name="slide" id="s1" checked>
-    <input type="radio" name="slide" id="s2">
-    <input type="radio" name="slide" id="s3">
+  <input type="radio" name="slide" id="s1" checked>
+  <input type="radio" name="slide" id="s2">
+  <input type="radio" name="slide" id="s3">
 
-    <div class="slides">
-      <a href="#post1" class="slide">
-        <img src="img1.webp" alt="Blog Post 1">
-      </a>
+  <div class="slides">
+    <a href="#post1" class="slide">
+      <img src="img1.webp" alt="Blog Post 1">
+    </a>
 
-      <a href="#post2" class="slide">
-        <img src="img2.jpg" alt="Blog Post 2">
-      </a>
+    <a href="#post2" class="slide">
+      <img src="img2.jpg" alt="Blog Post 2">
+    </a>
 
-      <a href="#post3" class="slide">
-        <img src="img3.jpg" alt="Blog Post 3">
-      </a>
-    </div>
-
-    <div class="dots">
-      <label for="s1"></label>
-      <label for="s2"></label>
-      <label for="s3"></label>
-
-    </div>
+    <a href="#post3" class="slide">
+      <img src="img3.jpg" alt="Blog Post 3">
+    </a>
   </div>
 
-  <section class="article-selection-section" style="background-color: #3d444d">
+  <div class="dots">
+    <label for="s1"></label>
+    <label for="s2"></label>
+    <label for="s3"></label>
 
-    <section id="category">
+  </div>
+</div>
 
-
-      <div class="category">
-
-
-        <h1>Choose Category For Blog Articles</h1>
+    <section class="article-selection-section" style="background-color: #3d444d">
 
         <div class="items">
           <div class="item">
@@ -78,7 +77,7 @@
       <!-- JS-injected content -->
     </div>
     <button class="show-more-btn" id="showMoreBtn">Show more</button>
-  </section>
+ 
   <div style="width: fit-content;height: 200px"></div>
 
   <!-- Opened Article -->
@@ -88,6 +87,52 @@
 
   <script src="resources/articles.js"></script>
   <script src="scripts.js"></script>
-</body>
 
+
+
+    
+  </div>
+</div>
+        <div class="card-container" id="cardContainer">
+        <!-- JS-injected content -->
+        </div>
+        <button class="show-more-btn" id="showMoreBtn">Show more</button>
+     
+
+    <!-- Opened Article -->
+    <article id="opened-article"></article>
+    
+<!-- Footer -->
+    
+    <footer id="footer">
+    <div class="footer-content">
+        <h3>Om oss</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+        <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+    </div>
+
+    <div class="footer-content">
+        <h3>Kontakta</h3>
+        <p>Email: kontakt@exempel.se</p>
+        <p>Telefon: +46 70 123 45 67</p>
+        <p>Järle, Sverige</p>
+    </div>
+
+    <div class="footer-content">
+        <h3>Sociala</h3>
+        <a href="https://github.com/AlbertTopallaj/blog-site">GitHub</a>
+        <a href="https://discord.gg/dAQPWf4s">Discord</a>
+    </div>
+
+    <div class="footer-content">
+        <h3>Extra</h3>
+        <p>Integritetspolicy</p>
+        <p>Villkor</p>
+        <p>Version 0.0.1a</p>
+    </div>
+</footer>
+  
+    <script src="resources/articles.js"></script>
+    <script src="scripts.js"></script>
+  </body>
 </html>
