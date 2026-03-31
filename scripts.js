@@ -12,6 +12,7 @@ function renderCards() {
         card.className = 'article-card';
         card.style.backgroundImage = `url('${article.image}')`;
         card.innerHTML = `<p>${article.title}</p>`;
+        card.onclick = function() { openArticle(article.id); };
         cards.appendChild(card);
 
     })
@@ -37,8 +38,16 @@ showMoreBtn.addEventListener("click", () => {
     }
 });
 
-function openArticle() {
-    document.getElementById('opened-article').style.display = 'flex';
+function openArticle(id) {
+    const div = document.getElementById('opened-article');
+    div.style.display = 'flex';
+    const article = articles.find((element) => element.id == id);
+    const title = `<h1>${article.title}</h1>`;
+    const img = `<img src=${article.image}>`;
+    const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
+    const bodyFormated = body.replace(/\n/g,'</p><p>');
+    div.innerHTML = `${title}${bodyFormated}`;
+    window.location.replace('#opened-article'); 
 }
 
 //window.addEventListener("DOMContentLoaded", () => {
@@ -128,4 +137,32 @@ if (id !== null) {
 
   updateSlider();
 }
-//});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+    const section = document.querySelector('.article-selection-section');
+
+const backgrounds = {
+
+    'category-ai': "url('resources/ai-bg.jpg')",
+    'category-css': "url('resources/css-bg.png')",
+    'category-html': "url('resources/html-bg.jpg')",
+    'category-springboot': "url('resources/springboot-bg.jpg')"
+
+};
+
+const defaultCategory = document.querySelector('input[name="category"]:checked');
+if (defaultCategory) {
+    section.style.backgroundImage =
+    `radial-gradient(ellipse at center, #0d1117 50%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
+}
+
+document.querySelectorAll('input[name="category"]').forEach(input => {
+    input.addEventListener('change', () => {
+        section.style.backgroundImage =
+        `radial-gradient(ellipse at center, #0d1117 20%, transparent 100%), ${backgrounds[input.id]}`;
+     });
+  });
+});
+
