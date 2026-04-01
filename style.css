@@ -108,6 +108,24 @@ body {
   background: #333;
 }
 
+.slide {
+  position: relative;
+}
+
+.slide-title {
+  position: absolute;
+  top: 0;               
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  box-sizing: border-box;
+}
+
 .category {
   display: flex;
   justify-content: center;
