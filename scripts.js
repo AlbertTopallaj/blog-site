@@ -98,38 +98,44 @@ if (id !== null) {
   const leftArrow = document.querySelector('.arrow.left');
   const rightArrow = document.querySelector('.arrow.right');
 
-  const randomized = [...articles].sort(() => Math.random() - 0.5);
-  let currentIndex = 0;
+  let currentSlides = [];     
+  let currentIndex = 0;      
+  let rotationTimer = null;   
 
-  if (!randomized.length) {
-    container.innerHTML = "<p>Inga artiklar</p>";
+  function getRandomThree() {
+    const shuffled = [...articles].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, 3);
   }
 
-  randomized.forEach((article, index) => {
-    const slide = document.createElement('div');
-    slide.classList.add('slide');
+  function renderSlides() {
+    container.innerHTML = "";
+    dotsContainer.innerHTML = "";
 
-    slide.innerHTML = `
+    currentSlides.forEach((article, index) => {
+      const slide = document.createElement('div');
+      slide.classList.add('slide');
+
+      slide.innerHTML = `
       <img src="${article.image}" alt="${article.title}">
-    `;
+      <div class="slide-title">${article.title}</div>
+      `;
 
-    slide.onclick = () => {
-      openArticle(article.id);
-    };
+      slide.onclick = () => openArticle(article.id);
+      container.appendChild(slide);
 
-    container.appendChild(slide);
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      dot.onclick = () => goToSlide(index);
+      dotsContainer.appendChild(dot);
+    });
 
-    const dot = document.createElement('span');
-    dot.classList.add('dot');
-    dot.onclick = () => goToSlide(index);
-
-    dotsContainer.appendChild(dot);
-  });
-
-  const dots = document.querySelectorAll('.dot');
+    updateSlider();
+  }
 
   function updateSlider() {
     container.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    const dots = document.querySelectorAll('.dot');
     dots.forEach(dot => dot.classList.remove('active'));
     if (dots[currentIndex]) dots[currentIndex].classList.add('active');
   }
@@ -140,16 +146,24 @@ if (id !== null) {
   }
 
   leftArrow.onclick = () => {
-    currentIndex = (currentIndex - 1 + randomized.length) % randomized.length;
+    currentIndex = (currentIndex - 1 + currentSlides.length) % currentSlides.length;
     updateSlider();
   };
 
   rightArrow.onclick = () => {
-    currentIndex = (currentIndex + 1) % randomized.length;
+    currentIndex = (currentIndex + 1) % currentSlides.length;
     updateSlider();
   };
 
-  updateSlider();
+  function rotateSlides() {
+    currentSlides = getRandomThree();
+    currentIndex = 0;
+    renderSlides();
+  }
+
+  rotateSlides();
+
+  rotationTimer = setInterval(rotateSlides, 10000);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
