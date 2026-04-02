@@ -182,7 +182,7 @@ const backgrounds = {
 const defaultCategory = document.querySelector('input[name="category"]:checked');
 if (defaultCategory) {
     section.style.backgroundImage =
-    `radial-gradient(ellipse at center, #0d1117 50%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
+    `radial-gradient(ellipse at center, #0d1117 20%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
 }
 
 document.querySelectorAll('input[name="category"]').forEach(input => {
