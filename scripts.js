@@ -5,6 +5,8 @@ const cardsPerRow = parseInt(getComputedStyle(document.querySelector("#article-s
 const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--card-height"))
 
+let visibleCards = cardsPerRow;
+
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
     cards.innerHTML = "";
     articles.forEach(article => {
@@ -13,6 +15,7 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             card.id = article.id;
             card.className = 'article-card';
             card.style.backgroundImage = `url('${article.image}')`;
+            cards.style.maxHeight = `${cardHeight * 1.5}px`;
             card.onclick = function() {openArticle(article.id)};
             const p = document.createElement('p');
             p.textContent = article.title;
@@ -20,27 +23,48 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             cards.appendChild(card);
         }
     })
+    visibleCards = cardsPerRow;
+    articleFade();
+    if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
+    else showMoreBtn.style.display = 'block';
 }
 renderCards("AI") // startup default
 
-let visibleCards = cardsPerRow;
 
-if (visibleCards >= cards.children.length) {
+function articleFade() {
+  if (visibleCards >= cards.children.length) {
     cards.classList.add('disable-fade');
-    showMoreBtn.disabled = true;
+  } else {
+    cards.classList.remove('disable-fade');
+  }
 }
 
+let showMoreBtnAction = showMoreArticles;
+
 showMoreBtn.addEventListener("click", () => {
-    if (visibleCards <= cards.children.length) {
-        const currentMaxHeight = parseInt(getComputedStyle(cards).maxHeight);
-        cards.style.maxHeight = `${(currentMaxHeight + cardHeight) * 1.5}px`
-        visibleCards += cardsPerRow;
-        if (visibleCards => cards.children.length) {
-            cards.classList.add('disable-fade');
-            showMoreBtn.disabled = true;
-        }
-    }
+  showMoreBtnAction();
+  articleFade();
 });
+
+function showMoreArticles() {
+  if (visibleCards <= cards.children.length) {
+    visibleCards += cardsPerRow;
+    cards.style.maxHeight = `${(visibleCards/cardsPerRow + 0.5) * cardHeight}px`;
+    if (visibleCards >= cards.children.length) {
+      showMoreBtn.textContent = 'Show less';
+      showMoreBtnAction = showLessArticles;
+    }
+  } 
+  articleFade();
+}
+
+function showLessArticles() {
+  cards.style.maxHeight = `${cardHeight * 1.5}px`;
+  showMoreBtn.textContent = 'Show more';
+  visibleCards = cardsPerRow;
+  articleFade();
+  showMoreBtnAction = showMoreArticles;
+}
 
 document.getElementById("category-ai").addEventListener("change", () => {
     renderCards("AI")
