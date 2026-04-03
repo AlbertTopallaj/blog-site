@@ -58,7 +58,7 @@ document.getElementById("category-springboot").addEventListener("change", () => 
 function openArticle(id) {
     const div = document.getElementById('opened-article');
     div.style.display = 'flex';
-    const article = articles.find((element) => element.id == id);
+    const article = articles.find((element) => element.id === id);
     const title = `<h1>${article.title}</h1>`;
     const img = `<img src=${article.image}>`;
     const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
@@ -71,7 +71,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 if (id !== null) {
-  const article = articles.find(a => a.id == id);
+  const article = articles.find(a => a.id === id);
 
   const app = document.getElementById('app');
 
@@ -182,13 +182,17 @@ const backgrounds = {
 const defaultCategory = document.querySelector('input[name="category"]:checked');
 if (defaultCategory) {
     section.style.backgroundImage =
-    `radial-gradient(ellipse at center, #0d1117 20%, transparent 100%), ${backgrounds[defaultCategory.id]}`;
+    `radial-gradient(ellipse 80% 85% at center, var(--background-color) 50%, transparent 100%),
+     linear-gradient(rgba(0, 0, 0, 0.5)),
+     ${backgrounds[defaultCategory.id]}`;
 }
 
 document.querySelectorAll('input[name="category"]').forEach(input => {
     input.addEventListener('change', () => {
         section.style.backgroundImage =
-        `radial-gradient(ellipse at center, #0d1117 20%, transparent 100%), ${backgrounds[input.id]}`;
+        `radial-gradient(ellipse 80% 85% at center, var(--background-color) 50%, transparent 100%),
+         linear-gradient(rgba(0, 0, 0, 0.5)),
+         ${backgrounds[input.id]}`;
      });
   });
 });
