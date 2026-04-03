@@ -5,6 +5,9 @@ const cardsPerRow = parseInt(getComputedStyle(document.querySelector("#article-s
 const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
     .getPropertyValue("--card-height"))
 
+let visibleCards = cardsPerRow;
+let showMoreBtnAction;
+
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
     cards.innerHTML = "";
     articles.forEach(article => {
@@ -13,6 +16,7 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             card.id = article.id;
             card.className = 'article-card';
             card.style.backgroundImage = `url('${article.image}')`;
+            cards.style.maxHeight = `${cardHeight * 1.5}px`;
             card.onclick = function() {openArticle(article.id)};
             const p = document.createElement('p');
             p.textContent = article.title;
@@ -20,27 +24,39 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             cards.appendChild(card);
         }
     })
+    showMoreBtnAction = showMoreArticles;
+    visibleCards = cardsPerRow;
+    if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
+    else showMoreBtn.style.display = 'block';
 }
 renderCards("AI") // startup default
 
-let visibleCards = cardsPerRow;
-
-if (visibleCards >= cards.children.length) {
-    cards.classList.add('disable-fade');
-    showMoreBtn.disabled = true;
-}
 
 showMoreBtn.addEventListener("click", () => {
-    if (visibleCards <= cards.children.length) {
-        const currentMaxHeight = parseInt(getComputedStyle(cards).maxHeight);
-        cards.style.maxHeight = `${(currentMaxHeight + cardHeight) * 1.5}px`
-        visibleCards += cardsPerRow;
-        if (visibleCards => cards.children.length) {
-            cards.classList.add('disable-fade');
-            showMoreBtn.disabled = true;
-        }
-    }
+  showMoreBtnAction();
 });
+
+function showMoreArticles() {
+  if (visibleCards <= cards.children.length) {
+    visibleCards += cardsPerRow;
+    cards.style.maxHeight = `${(visibleCards/cardsPerRow + 0.5) * cardHeight}px`;
+    if (visibleCards >= cards.children.length) {
+      changeShowMoreToShowLess();
+    }
+  } 
+}
+
+function showLessArticles() {
+  cards.style.maxHeight = `${cardHeight * 1.5}px`;
+  showMoreBtn.textContent = '\u23F7';
+  visibleCards = cardsPerRow;
+  showMoreBtnAction = showMoreArticles;
+}
+
+function changeShowMoreToShowLess() {
+  showMoreBtn.textContent = '\u23F6';
+  showMoreBtnAction = showLessArticles;
+}
 
 document.getElementById("category-ai").addEventListener("change", () => {
     renderCards("AI")
