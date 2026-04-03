@@ -265,6 +265,7 @@ body {
     position: relative;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     transition: transform 200ms ease;
+    cursor: pointer;
 }
 .article-card p {
     position: relative;
@@ -278,37 +279,6 @@ body {
 .article-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 18px rgba(0,0,0,0.45);
-}
-
-.article-card {
-  width: var(--card-width);
-  height: var(--card-height);
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  padding: 15px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 200ms ease;
-  cursor: pointer;
-}
-
-.article-card p {
-  position: relative;
-  color: azure;
-  text-align: center;
-  font-size: 15px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.article-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
 }
 
 .show-more-btn {
@@ -326,25 +296,6 @@ body {
     transform 200ms ease,
     box-shadow 200ms ease;
 
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
-}
-
-.show-more-btn:disabled {
-  background: #555;
-  color: #aaa;
-  cursor: not-allowed;
-  box-shadow: none;
-  transform: none;
-  pointer-events: none;
-}
-
-.show-more-btn:not(:disabled):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.show-more-btn:not(:disabled):active {
-  transform: translateY(0px);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
