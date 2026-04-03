@@ -6,6 +6,7 @@ const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-se
     .getPropertyValue("--card-height"))
 
 let visibleCards = cardsPerRow;
+let showMoreBtnAction;
 
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
     cards.innerHTML = "";
@@ -23,27 +24,16 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             cards.appendChild(card);
         }
     })
+    showMoreBtnAction = showMoreArticles;
     visibleCards = cardsPerRow;
-    articleFade();
     if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
     else showMoreBtn.style.display = 'block';
 }
 renderCards("AI") // startup default
 
 
-function articleFade() {
-  if (visibleCards >= cards.children.length) {
-    cards.classList.add('disable-fade');
-  } else {
-    cards.classList.remove('disable-fade');
-  }
-}
-
-let showMoreBtnAction = showMoreArticles;
-
 showMoreBtn.addEventListener("click", () => {
   showMoreBtnAction();
-  articleFade();
 });
 
 function showMoreArticles() {
@@ -51,19 +41,21 @@ function showMoreArticles() {
     visibleCards += cardsPerRow;
     cards.style.maxHeight = `${(visibleCards/cardsPerRow + 0.5) * cardHeight}px`;
     if (visibleCards >= cards.children.length) {
-      showMoreBtn.textContent = 'Show less';
-      showMoreBtnAction = showLessArticles;
+      changeShowMoreToShowLess();
     }
   } 
-  articleFade();
 }
 
 function showLessArticles() {
   cards.style.maxHeight = `${cardHeight * 1.5}px`;
-  showMoreBtn.textContent = 'Show more';
+  showMoreBtn.textContent = '\u23F7';
   visibleCards = cardsPerRow;
-  articleFade();
   showMoreBtnAction = showMoreArticles;
+}
+
+function changeShowMoreToShowLess() {
+  showMoreBtn.textContent = '\u23F6';
+  showMoreBtnAction = showLessArticles;
 }
 
 document.getElementById("category-ai").addEventListener("change", () => {
