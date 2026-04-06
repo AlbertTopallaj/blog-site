@@ -8,6 +8,10 @@ const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-se
 let visibleCards = cardsPerRow;
 let showMoreBtnAction;
 
+function headerImageRedirect() {
+  window.location.href = 'index.html';
+}
+
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
     cards.innerHTML = "";
     articles.forEach(article => {

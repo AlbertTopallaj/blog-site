@@ -44,6 +44,7 @@ body {
 #header img {
     margin-left: 1em;
     margin-right: 1em;
+    cursor: pointer;
 }
 
 #slider {
@@ -343,7 +344,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 80px;
-    width: 100%;
     margin-bottom: 20px;
     padding: 50px;
     border-top: 1px solid gray;
