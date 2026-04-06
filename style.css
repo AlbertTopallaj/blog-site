@@ -380,3 +380,8 @@ body {
 .footer-content a:hover {
     color: azure;
 }
+
+.logo {
+    border: none;
+    display: block;
+}
