@@ -43,6 +43,7 @@ function showMoreArticles() {
     visibleCards += cardsPerRow;
     cards.style.maxHeight = `${(visibleCards/cardsPerRow + 0.5) * cardHeight}px`;
     if (visibleCards >= cards.children.length) {
+        cards.classList.add('disable-fade');
       changeShowMoreToShowLess();
     }
   } 
@@ -52,6 +53,7 @@ function showLessArticles() {
   cards.style.maxHeight = `${cardHeight * 1.5}px`;
   showMoreBtn.textContent = '\u23F7';
   visibleCards = cardsPerRow;
+    cards.classList.remove('disable-fade');
   showMoreBtnAction = showMoreArticles;
 }
 
