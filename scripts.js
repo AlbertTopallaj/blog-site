@@ -20,7 +20,6 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             card.id = article.id;
             card.className = 'article-card';
             card.style.backgroundImage = `url('${article.image}')`;
-            cards.style.maxHeight = `${cardHeight * 1.5}px`;
             card.onclick = function() {openArticle(article.id)};
             const p = document.createElement('p');
             p.textContent = article.title;
@@ -28,8 +27,7 @@ function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
             cards.appendChild(card);
         }
     })
-    showMoreBtnAction = showMoreArticles;
-    visibleCards = cardsPerRow;
+    showLessArticles();
     if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
     else showMoreBtn.style.display = 'block';
 }
