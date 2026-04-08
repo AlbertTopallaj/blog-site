@@ -162,6 +162,15 @@ body {
 .category input {
     width: 20px;
     height: 20px;
+    appearance: none;
+    border-radius: 50%;
+    border: 2px solid gray;
+    background-color: black;
+}
+
+.category input:checked {
+    background-color: white;
+    border-color: white;
 }
 
 .category input:hover {
