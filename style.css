@@ -162,15 +162,13 @@ body {
 .category input {
     width: 20px;
     height: 20px;
-    accent-color: #333;
-
 }
 
 .category input:hover {
     cursor: pointer;
 }
 
-.item {
+.category-part-container {
     display: flex;
     flex: 1;
     min-width: 100px;
@@ -181,11 +179,11 @@ body {
     transition: transform 0.2s;
 }
 
-.item:hover {
+.category-part-container:hover {
     transform: scale(1.03);
 }
 
-.items {
+.category-container {
     display: flex;
     gap: 16px;
     align-items: stretch;
