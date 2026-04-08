@@ -1,9 +1,9 @@
 const cards = document.getElementById("cardContainer")
 const showMoreBtn = document.getElementById("showMoreBtn")
 const cardsPerRow = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
-    .getPropertyValue("--cards-per-row"));
+  .getPropertyValue("--cards-per-row"));
 const cardHeight = parseInt(getComputedStyle(document.querySelector("#article-selection-section"))
-    .getPropertyValue("--card-height"))
+  .getPropertyValue("--card-height"))
 
 let visibleCards = cardsPerRow;
 let showMoreBtnAction;
@@ -13,23 +13,23 @@ function headerImageRedirect() {
 }
 
 function renderCards(input) { // "AI", "CSS", "HTML", "SPRING"
-    cards.innerHTML = "";
-    articles.forEach(article => {
-        if (article.category === input) {
-            const card = document.createElement('div');
-            card.id = article.id;
-            card.className = 'article-card';
-            card.style.backgroundImage = `url('${article.image}')`;
-            card.onclick = function() {openArticle(article.id)};
-            const p = document.createElement('p');
-            p.textContent = article.title;
-            card.appendChild(p)
-            cards.appendChild(card);
-        }
-    })
-    showLessArticles();
-    if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
-    else showMoreBtn.style.display = 'block';
+  cards.innerHTML = "";
+  articles.forEach(article => {
+    if (article.category === input) {
+      const card = document.createElement('div');
+      card.id = article.id;
+      card.className = 'article-card';
+      card.style.backgroundImage = `url('${article.image}')`;
+      card.onclick = function () { openArticle(article.id) };
+      const p = document.createElement('p');
+      p.textContent = article.title;
+      card.appendChild(p)
+      cards.appendChild(card);
+    }
+  })
+  showLessArticles();
+  if (cards.children.length <= cardsPerRow) showMoreBtn.style.display = 'none';
+  else showMoreBtn.style.display = 'block';
 }
 renderCards("AI") // startup default
 
@@ -41,19 +41,19 @@ showMoreBtn.addEventListener("click", () => {
 function showMoreArticles() {
   if (visibleCards <= cards.children.length) {
     visibleCards += cardsPerRow;
-    cards.style.maxHeight = `${(visibleCards/cardsPerRow + 0.5) * cardHeight}px`;
+    cards.style.maxHeight = `${(visibleCards / cardsPerRow + 0.5) * cardHeight}px`;
     if (visibleCards >= cards.children.length) {
-        cards.classList.add('disable-fade');
+      cards.classList.add('disable-fade');
       changeShowMoreToShowLess();
     }
-  } 
+  }
 }
 
 function showLessArticles() {
   cards.style.maxHeight = `${cardHeight * 1.5}px`;
   showMoreBtn.textContent = '\u23F7';
   visibleCards = cardsPerRow;
-    cards.classList.remove('disable-fade');
+  cards.classList.remove('disable-fade');
   showMoreBtnAction = showMoreArticles;
 }
 
@@ -63,28 +63,28 @@ function changeShowMoreToShowLess() {
 }
 
 document.getElementById("category-ai").addEventListener("change", () => {
-    renderCards("AI")
+  renderCards("AI")
 })
 document.getElementById("category-css").addEventListener("change", () => {
-    renderCards("CSS")
+  renderCards("CSS")
 })
 document.getElementById("category-html").addEventListener("change", () => {
-    renderCards("HTML")
+  renderCards("HTML")
 })
 document.getElementById("category-springboot").addEventListener("change", () => {
-    renderCards("SPRING")
+  renderCards("SPRING")
 })
 
 function openArticle(id) {
-    const div = document.getElementById('opened-article');
-    div.style.display = 'flex';
-    const article = articles.find((element) => element.id === id);
-    const title = `<h1>${article.title}</h1>`;
-    const img = `<img src=${article.image}>`;
-    const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
-    const bodyFormated = body.replace(/\n/g,'</p><p>');
-    div.innerHTML = `${title}${bodyFormated}`;
-    window.location.replace('#opened-article'); 
+  const div = document.getElementById('opened-article');
+  div.style.display = 'flex';
+  const article = articles.find((element) => element.id === id);
+  const title = `<h1>${article.title}</h1>`;
+  const img = `<img src=${article.image}>`;
+  const body = `<div id='article-content'>${img}<p>${article.body}</p></div>`;
+  const bodyFormated = body.replace(/\n/g, '</p><p>');
+  div.innerHTML = `${title}${bodyFormated}`;
+  window.location.replace('#opened-article');
 }
 
 const params = new URLSearchParams(window.location.search);
@@ -118,9 +118,9 @@ if (id !== null) {
   const leftArrow = document.querySelector('.arrow.left');
   const rightArrow = document.querySelector('.arrow.right');
 
-  let currentSlides = [];     
-  let currentIndex = 0;      
-  let rotationTimer = null;   
+  let currentSlides = [];
+  let currentIndex = 0;
+  let rotationTimer = null;
 
   function getRandomThree() {
     const shuffled = [...articles].sort(() => Math.random() - 0.5);
@@ -189,31 +189,31 @@ if (id !== null) {
 document.addEventListener('DOMContentLoaded', () => {
 
 
-    const section = document.querySelector('#article-selection-section');
+  const section = document.querySelector('#article-selection-section');
 
-const backgrounds = {
+  const backgrounds = {
     'category-ai': "url('resources/ai-bg.jpg')",
     'category-css': "url('resources/css-bg.png')",
     'category-html': "url('resources/html-bg.jpg')",
     'category-springboot': "url('resources/springboot-bg.jpg')"
 
-};
+  };
 
-const defaultCategory = document.querySelector('input[name="category"]:checked');
-if (defaultCategory) {
+  const defaultCategory = document.querySelector('input[name="category"]:checked');
+  if (defaultCategory) {
     section.style.backgroundImage =
-    `radial-gradient(ellipse 80% 85% at center, var(--background-color) 50%, transparent 100%),
+      `radial-gradient(ellipse 80% 85% at center, var(--background-color) 50%, transparent 100%),
      linear-gradient(rgba(0, 0, 0, 0.5)),
      ${backgrounds[defaultCategory.id]}`;
-}
+  }
 
-document.querySelectorAll('input[name="category"]').forEach(input => {
+  document.querySelectorAll('input[name="category"]').forEach(input => {
     input.addEventListener('change', () => {
-        section.style.backgroundImage =
+      section.style.backgroundImage =
         `radial-gradient(ellipse 80% 85% at center, var(--background-color) 50%, transparent 100%),
          linear-gradient(rgba(0, 0, 0, 0.5)),
          ${backgrounds[input.id]}`;
-     });
+    });
   });
 });
 
